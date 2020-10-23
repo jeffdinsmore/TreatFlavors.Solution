@@ -38,7 +38,6 @@ namespace TreatFlavors
     {
       var testAdmin = await userManager.Users
         .Where(x => x.UserName == "admin@pierre.local")
-        .Where(x => x.UserName == "admin@pierre.com")
         .SingleOrDefaultAsync();
 
       if (testAdmin != null) return;

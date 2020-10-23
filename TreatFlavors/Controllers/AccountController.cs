@@ -3,11 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using TreatFlavors.Models;
 using System.Threading.Tasks;
 using TreatFlavors.ViewModels;
-using System.Security.Claims;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace TreatFlavors.Controllers
 {
@@ -48,6 +43,7 @@ namespace TreatFlavors.Controllers
         return View();
       }
     }
+
     public ActionResult Login()
     {
       return View();
@@ -59,13 +55,14 @@ namespace TreatFlavors.Controllers
       Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Login");
       }
       else
       {
         return View();
       }
     }
+
     [HttpPost]
     public async Task<ActionResult> LogOff()
     {
