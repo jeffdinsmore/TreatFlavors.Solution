@@ -45,8 +45,8 @@ namespace TreatFlavors
 
     public void Configure(IApplicationBuilder app)
     {
-      app.UseDeveloperExceptionPage();
       app.UseStaticFiles();
+      app.UseDeveloperExceptionPage();
       app.UseAuthentication();
 
       app.UseMvc(routes =>
@@ -60,7 +60,6 @@ namespace TreatFlavors
       {
         await context.Response.WriteAsync("Something went wrong!");
       });
-
     }
   }
 }
