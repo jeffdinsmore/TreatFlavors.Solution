@@ -1,9 +1,15 @@
+using System.Collections.Generic;
+
 namespace TreatFlavors.Models
 {
   public class Flavor
   {
-
-    // properties, methods, etc. will go here.
-
+    public Flavor()
+    {
+      this.FlavorTreats = new HashSet<FlavorTreat>();
+    }
+    public int FlavorId { get; set; }
+    public string FlavorName { get; set; }
+    public virtual ICollection<FlavorTreat> FlavorTreats { get; set; }
   }
 }
