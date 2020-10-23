@@ -93,7 +93,7 @@ namespace TreatFlavors.Controllers
       return RedirectToAction("Details", new { id = flavorId });
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public ActionResult AddTreat(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
@@ -101,7 +101,7 @@ namespace TreatFlavors.Controllers
       return View(thisFlavor);
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
