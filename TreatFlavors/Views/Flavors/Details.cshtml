@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+@model TreatFlavors.Models.Flavor
+@using TreatFlavors.Models;
+
+<br>
+<h2>Flavor Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)<h3>
+
+    @if (@Model.FlavorTreats.Count == 0)
+    {
+      <p>This page does not contain any flavors</p>
+    }
+    else
+    {
+      <h4>Treats with this flavor:</h4>
+      <ul>
+        @foreach (var join in Model.FlavorTreats)
+        {
+          <li>@join.Treat.TreatName</li>
+        }
+      </ul>
+    }
+    <br>
+    @if (User.Identity.Name == "admin@pierre.local")
+    {
+      <p>@Html.ActionLink("Add a Treat", "AddTreat", "Flavors", new { id = Model.FlavorId } , new {@class="btn btn-success btn-sm"})</p>
+      <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId }, new {@class="btn btn-success btn-sm"})</p>
+      <p>@Html.ActionLink("DeleteFlavorr", "Delete", new { id = Model.FlavorId }, new {@class="btn btn-danger btn-sm"})</p>
+    }
+    <p>@Html.ActionLink("See All Flavors", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
