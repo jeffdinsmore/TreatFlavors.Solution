@@ -1,6 +1,6 @@
 # _Application Name_
 
-#### _{Brief descrition on what application does}, {Date}_
+#### _{Brief descrition on what application does}, 10/23/2020_
 
 #### By _Jeff Dinsmore_
 
@@ -55,6 +55,7 @@ _Any known issues, please reach out to Jeff Dinsmore by email at hello@jeffdinsm
 * _Bootstrap_
 * _VS Code_
 * _LINQ_
+* _Identity_
 * _Entity Framework Core_
 
 
