@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+@using TreatFlavors.Models;
+@model IEnumerable<TreatFlavors.Models.Treat>
+
+<br>
+<h6>Items for @User.Identity.Name</h6>
+<h2>Treats</h2>
+
+@if (@Model.Any())
+{
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId }, new {@class="linkHelper"})</li>
+    }
+  </ul>
+}
+else
+{
+  <h3>No treats have been added yet!</h3>
+}
+
+<br>
+@if (User.Identity.Name == "admin@pierre.local")
+{
+  <p>@Html.ActionLink("Add new Treat", "Create", null, null, new {@class="btn btn-success btn-sm"})</p>
+}
+<p>@Html.ActionLink("Search a Treat", "Search", null, null, new {@class="btn btn-info btn-sm"})</p>
+<p>@Html.ActionLink("Homepage", "Index", "Home", null, new {@class="btn btn-info btn-sm"})</p>
