@@ -112,5 +112,17 @@ namespace TreatFlavors.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
+    public ActionResult Search()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Search(string name)
+    {
+      List<Flavor> model = _db.Flavors.Where(x => x.FlavorName.Contains(name)).ToList();
+      List<Flavor> SortedList = model.OrderBy(o => o.FlavorName).ToList();
+      return View("Index", SortedList);
+    }
   }
 }

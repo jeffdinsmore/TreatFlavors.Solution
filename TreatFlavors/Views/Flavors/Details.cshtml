@@ -7,15 +7,15 @@
 <br>
 <h2>Flavor Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)<h3>
+<h4>@Html.DisplayName("Flavor"): @Html.DisplayFor(model => model.FlavorName)<h4>
 
     @if (@Model.FlavorTreats.Count == 0)
     {
-      <p>This page does not contain any flavors</p>
+      <p>This flavor is not associated with any treats</p>
     }
     else
     {
-      <h4>Treats with this flavor:</h4>
+      <h5>Treats with this flavor:</h5>
       <ul>
         @foreach (var join in Model.FlavorTreats)
         {
@@ -28,6 +28,6 @@
     {
       <p>@Html.ActionLink("Add a Treat", "AddTreat", "Flavors", new { id = Model.FlavorId } , new {@class="btn btn-success btn-sm"})</p>
       <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId }, new {@class="btn btn-success btn-sm"})</p>
-      <p>@Html.ActionLink("DeleteFlavorr", "Delete", new { id = Model.FlavorId }, new {@class="btn btn-danger btn-sm"})</p>
+      <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId }, new {@class="btn btn-danger btn-sm"})</p>
     }
     <p>@Html.ActionLink("See All Flavors", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
