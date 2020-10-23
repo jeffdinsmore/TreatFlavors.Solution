@@ -1,8 +1,37 @@
 @{
-    Layout = "_Layout";
+  Layout = "_Layout";
 }
 
 <h2 class="jumbotron">Welcome to Pierre's Sweet & Savory Treats!</h2>
-<p>@Html.ActionLink("See All Treats", "Index", "Treats", null, new {@class="btn btn-info btn-sm"})</p>
-<p>@Html.ActionLink("See All Flavors", "Index", "Flavors", null, new {@class="btn btn-info btn-sm"})</p>
+<div class="row">
+  <div class="col-md-5">
+    <h5>Treats Pierre has today:</h5>
+    @if (ViewBag.Treat.Count == 0)
+    {
+      <h5>Pierre does not have any Treats today!</h5>
+    }
+    @foreach (var treat in ViewBag.Treat)
+    {
+      <li>- &nbsp; @treat.TreatName</li>
+    }
+    <br>
+    <p>@Html.ActionLink("Go To Treats", "Index", "Treats", null, new {@class="btn btn-info btn-sm"})</p>
+  </div>
+  <div class="col-md-5">
+    @if (ViewBag.Flavor.Count == 0)
+    {
+      <h5>Pierre does not have any Flavors today!</h5>
+    }
+    <h5>Flavors Pierre has today:</h5>
+
+    @foreach (var flavor in ViewBag.Flavor)
+    {
+      <li>- &nbsp; @flavor.FlavorName</li>
+    }
+    <br>
+    <p>@Html.ActionLink("Go To Flavors", "Index", "Flavors", null, new {@class="btn btn-info btn-sm"})</p>
+  </div>
+</div>
+
+<br>
 <p>@Html.ActionLink("Create an account", "Index", "Account", null, new {@class="btn btn-success btn-sm"})</p>

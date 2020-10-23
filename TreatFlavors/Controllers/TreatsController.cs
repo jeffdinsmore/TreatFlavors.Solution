@@ -22,7 +22,7 @@ namespace TreatFlavors.Controllers
 
     public ActionResult Index()
     {
-      List<Treat> model = _db.Treats.ToList();
+      List<Treat> model = _db.Treats.OrderBy(o => o.TreatName).ToList();
       return View(model);
     }
 
