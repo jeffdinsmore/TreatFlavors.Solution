@@ -1,19 +1,80 @@
-img {
-  width: 640px;
-  margin: 20px;
-  border: 10px solid gray;
-  border-radius: 10px;
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  font-family: Century Gothic, sans-serif;
 }
 
-div#footer {
-  position:fixed;
-  bottom:0px;
-  left:0px;
-  width:100%;
-  color:#CCC;
-  background:#333;
-  padding:10px;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+  font-family: Century Gothic, sans-serif;
 }
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    font-family: Century Gothic, sans-serif;
+  }
+}
+
+.container {
+background-color: lightgrey;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+  font-family: Century Gothic, sans-serif;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: Century Gothic, sans-serif;
+}
+.footer {
+  position: absolute;
+  background-color: lightgrey;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  font-family: Century Gothic, sans-serif;
+}
+
+.linkHelper {
+  color: rgb(96, 126, 226);
+  font-family: Century Gothic, sans-serif;
+}
+
+.logout { 
+  float: right;
+  margin-top: 16px;
+}
+
 li {
   list-style-type: none;
 }

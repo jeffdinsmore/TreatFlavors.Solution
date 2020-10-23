@@ -40,6 +40,7 @@ namespace TreatFlavors.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    [Authorize]
     public ActionResult Details(int id)
     {
       var thisFlavor = _db.Flavors

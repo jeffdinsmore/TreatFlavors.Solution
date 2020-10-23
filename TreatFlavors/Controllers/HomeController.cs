@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System.Diagnostics;
 using System.Linq;
 
 namespace TreatFlavors.Controllers
@@ -18,9 +19,7 @@ namespace TreatFlavors.Controllers
     {
       _db = db;
     }
-
-    [HttpGet("/")]
-    public ActionResult Index()
+    public IActionResult Index()
     {
       List<Flavor> modelFlavor = _db.Flavors.OrderBy(o => o.FlavorName).ToList();
       List<Treat> modelTreat = _db.Treats.OrderBy(o => o.TreatName).ToList();
