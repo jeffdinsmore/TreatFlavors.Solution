@@ -121,7 +121,7 @@ namespace TreatFlavors.Controllers
     [HttpPost]
     public ActionResult Search(string name)
     {
-      List<Flavor> model = _db.Flavors.Where(x => x.FlavorName.Contains(name)).ToList();
+      List<Flavor> model = _db.Flavors.Include(x => x.FlavorTreats).Where(x => x.FlavorName.Contains(name)).ToList();
       List<Flavor> SortedList = model.OrderBy(o => o.FlavorName).ToList();
       return View("Index", SortedList);
     }
