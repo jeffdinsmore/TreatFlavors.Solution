@@ -12,7 +12,7 @@
     }
     @foreach (var treat in ViewBag.Treat)
     {
-      <li>- &nbsp; @treat.TreatName</li>
+      <li>&nbsp; - &nbsp; @treat.TreatName</li>
     }
     <br>
     <p>@Html.ActionLink("Go To Treats", "Index", "Treats", null, new {@class="btn btn-info btn-sm"})</p>
@@ -26,7 +26,7 @@
 
     @foreach (var flavor in ViewBag.Flavor)
     {
-      <li>- &nbsp; @flavor.FlavorName</li>
+      <li>&nbsp; - &nbsp; @flavor.FlavorName</li>
     }
     <br>
     <p>@Html.ActionLink("Go To Flavors", "Index", "Flavors", null, new {@class="btn btn-info btn-sm"})</p>
@@ -34,5 +34,11 @@
 </div>
 
 <br>
+@if (User.Identity.IsAuthenticated)
+{
+  
+}
+else
+{
 <p>@Html.ActionLink("Create an account", "Index", "Account", null, new {@class="btn btn-success btn-sm"})</p>
-
+}

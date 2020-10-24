@@ -24,7 +24,7 @@ namespace TreatFlavors.Controllers
       List<Flavor> modelFlavor = _db.Flavors.OrderBy(o => o.FlavorName).ToList();
       List<Treat> modelTreat = _db.Treats.OrderBy(o => o.TreatName).ToList();
       ViewBag.Treat = modelTreat;
-      ViewBag.Flavor = modelFlavor; 
+      ViewBag.Flavor = modelFlavor;
       return View();
     }
   }

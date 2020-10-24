@@ -40,6 +40,7 @@ namespace TreatFlavors.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    [Authorize]
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treats
@@ -111,6 +112,19 @@ namespace TreatFlavors.Controllers
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = treat.TreatId });
+    }
+
+    public ActionResult Search()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Search(string treatName)
+    {
+      List<Treat> model = _db.Treats.Include(x => x.FlavorTreats).Where(x => x.TreatName.Contains(treatName)).ToList();
+      List<Treat> SortedList = model.OrderBy(o => o.TreatName).ToList();
+      return View("Index", SortedList);
     }
   }
 }

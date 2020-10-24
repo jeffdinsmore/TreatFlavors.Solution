@@ -12,7 +12,7 @@
 {
   @Html.HiddenFor(model => model.FlavorId)
 
-  @Html.LabelFor(model => model.FlavorName)
+  @Html.Label("Flavor Name")
   @Html.EditorFor(model => model.FlavorName)
 
   <input type="submit" value="Save" class="btn btn-success btn-sm" />

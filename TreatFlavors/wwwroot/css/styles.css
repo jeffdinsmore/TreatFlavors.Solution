@@ -50,6 +50,7 @@ html {
 }
 
 body {
+  
   margin-bottom: 60px;
   font-family: Century Gothic, sans-serif;
 }
@@ -77,4 +78,8 @@ body {
 
 li {
   list-style-type: none;
+}
+
+ul {
+  padding-left: 20px;
 }

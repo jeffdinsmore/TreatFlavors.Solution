@@ -6,20 +6,20 @@
 
 <br>
 
-<h2>Flavors</h2>
+<h2>Flavors:</h2>
 
 @if (@Model.Any())
 {
   <ul>
     @foreach (Flavor flavor in Model)
     {
-      <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId }, new {@class="linkHelper"})</li>
+      <li class="linkHelper">- &nbsp;@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId }, new {@class="linkHelper"})</li>
     }
   </ul>
 }
 else
 {
-  <h3>No flavors have been added yet!</h3>
+  <h3>There are no flavors in this list!</h3>
 }
 
 <br>

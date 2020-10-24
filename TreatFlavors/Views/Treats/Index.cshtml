@@ -12,13 +12,13 @@
   <ul>
     @foreach (Treat treat in Model)
     {
-      <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId }, new {@class="linkHelper"})</li>
+      <li class="linkHelper">- &nbsp;@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId }, new {@class="linkHelper"})</li>
     }
   </ul>
 }
 else
 {
-  <h3>No treats have been added yet!</h3>
+  <h3>There are no treats in this list!</h3>
 }
 
 <br>
