@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TreatFlavors.Models;
 
 namespace TreatFlavors.Migrations
 {
     [DbContext(typeof(TreatFlavorsContext))]
-    partial class TreatFlavorsContextModelSnapshot : ModelSnapshot
+    [Migration("20201030063332_changeModelNames")]
+    partial class changeModelNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,9 +193,9 @@ namespace TreatFlavors.Migrations
                     b.Property<int>("FlavorTreatId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("FlavorId");
+                    b.Property<int?>("FlavorId");
 
-                    b.Property<int>("TreatId");
+                    b.Property<int?>("TreatId");
 
                     b.HasKey("FlavorTreatId");
 
@@ -265,13 +267,11 @@ namespace TreatFlavors.Migrations
                 {
                     b.HasOne("TreatFlavors.Models.Flavor", "Flavor")
                         .WithMany("Treats")
-                        .HasForeignKey("FlavorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("FlavorId");
 
                     b.HasOne("TreatFlavors.Models.Treat", "Treat")
                         .WithMany("Flavors")
-                        .HasForeignKey("TreatId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TreatId");
                 });
 #pragma warning restore 612, 618
         }

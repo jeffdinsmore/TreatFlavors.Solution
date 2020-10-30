@@ -1,13 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TreatFlavors.Models;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Security.Claims;
-using System.Diagnostics;
 using System.Linq;
 
 namespace TreatFlavors.Controllers

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Security.Claims;
 using System.Linq;
 
 namespace TreatFlavors.Controllers
@@ -44,7 +41,7 @@ namespace TreatFlavors.Controllers
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treats
-        .Include(treat => treat.FlavorTreats)
+        .Include(treat => treat.Flavors)
         .ThenInclude(join => join.Flavor)
         .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
@@ -88,8 +85,8 @@ namespace TreatFlavors.Controllers
     [HttpPost]
     public ActionResult DeleteFlavor(int flavorTreatId, int treatId)
     {
-      var flavorTreat = _db.FlavorTreats.FirstOrDefault(entry => entry.FlavorTreatId == flavorTreatId);
-      _db.FlavorTreats.Remove(flavorTreat);
+      var flavorTreat = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == flavorTreatId);
+      _db.FlavorTreat.Remove(flavorTreat);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = treatId });
     }
@@ -108,7 +105,7 @@ namespace TreatFlavors.Controllers
     {
       if (FlavorId != 0)
       {
-        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = treat.TreatId });
@@ -122,7 +119,7 @@ namespace TreatFlavors.Controllers
     [HttpPost]
     public ActionResult Search(string treatName)
     {
-      List<Treat> model = _db.Treats.Include(x => x.FlavorTreats).Where(x => x.TreatName.Contains(treatName)).ToList();
+      List<Treat> model = _db.Treats.Include(x => x.Flavors).Where(x => x.TreatName.Contains(treatName)).ToList();
       List<Treat> SortedList = model.OrderBy(o => o.TreatName).ToList();
       return View("Index", SortedList);
     }

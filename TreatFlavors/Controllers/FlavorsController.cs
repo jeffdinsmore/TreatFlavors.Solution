@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Security.Claims;
 using System.Linq;
 
 namespace TreatFlavors.Controllers
@@ -44,7 +41,7 @@ namespace TreatFlavors.Controllers
     public ActionResult Details(int id)
     {
       var thisFlavor = _db.Flavors
-        .Include(flavor => flavor.FlavorTreats)
+        .Include(flavor => flavor.Treats)
         .ThenInclude(join => join.Treat)
         .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
@@ -88,8 +85,8 @@ namespace TreatFlavors.Controllers
     [HttpPost]
     public ActionResult DeleteTreat(int joinId, int flavorId)
     {
-      var flavorTreat = _db.FlavorTreats.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
-      _db.FlavorTreats.Remove(flavorTreat);
+      var flavorTreat = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(flavorTreat);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = flavorId });
     }
@@ -108,7 +105,7 @@ namespace TreatFlavors.Controllers
     {
       if (TreatId != 0)
       {
-        _db.FlavorTreats.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+        _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = flavor.FlavorId });
@@ -121,7 +118,7 @@ namespace TreatFlavors.Controllers
     [HttpPost]
     public ActionResult Search(string flavorName)
     {
-      List<Flavor> model = _db.Flavors.Include(x => x.FlavorTreats).Where(x => x.FlavorName.Contains(flavorName)).ToList();
+      List<Flavor> model = _db.Flavors.Include(x => x.Treats).Where(x => x.FlavorName.Contains(flavorName)).ToList();
       List<Flavor> SortedList = model.OrderBy(o => o.FlavorName).ToList();
       return View("Index", SortedList);
     }

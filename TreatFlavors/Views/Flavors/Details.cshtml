@@ -2,14 +2,13 @@
   Layout = "_Layout";
 }
 @model TreatFlavors.Models.Flavor
-@using TreatFlavors.Models;
 
 <br>
 <h2>Flavor Details:</h2>
 <hr />
 <h4>@Html.DisplayName("Flavor"): @Html.DisplayFor(model => model.FlavorName)<h4>
 
-@if (@Model.FlavorTreats.Count == 0)
+@if (@Model.Treats.Count == 0)
 {
   <p>This flavor is not associated with any treats.</p>
 }
@@ -17,9 +16,15 @@ else
 {
   <h5>Treats with this flavor:</h5>
   <ul>
-    @foreach (var join in Model.FlavorTreats)
+    @foreach (var join in Model.Treats)
     {
       <li>- &nbsp;@join.Treat.TreatName</li>
+      @using (Html.BeginForm("DeleteTreat", "Flavors"))
+      {
+        @Html.Hidden("flavorId", @join.FlavorId)
+        @Html.Hidden("joinId", @join.FlavorTreatId)
+        <li class="joinLine"><input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
+      }
     }
   </ul>
 }
