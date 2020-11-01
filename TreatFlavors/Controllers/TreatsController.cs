@@ -83,9 +83,9 @@ namespace TreatFlavors.Controllers
 
     [Authorize(Roles = "Administrator")]
     [HttpPost]
-    public ActionResult DeleteFlavor(int flavorTreatId, int treatId)
+    public ActionResult DeleteFlavor(int joinId, int treatId)
     {
-      var flavorTreat = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == flavorTreatId);
+      var flavorTreat = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
       _db.FlavorTreat.Remove(flavorTreat);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = treatId });

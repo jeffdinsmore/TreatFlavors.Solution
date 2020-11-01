@@ -2,7 +2,6 @@
   Layout = "_Layout";
 }
 @model TreatFlavors.Models.Treat
-@using TreatFlavors.Models;
 
 <br>
 <h2>Treat Details:</h2>
@@ -16,18 +15,22 @@
 else
 {
   <h5>Flavors with this treat:</h5>
-  <ul>
-    @foreach (var join in Model.Flavors)
-    {
-      <li>- &nbsp;@join.Flavor.FlavorName</li>
-      @using (Html.BeginForm("DeleteFlavor", "Treats"))
-      {
-        @Html.Hidden("treatId", @join.FlavorId)
-        @Html.Hidden("joinId", @join.FlavorTreatId)
-        <li class="joinLine"><input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
-      }
-    }
-  </ul>
+  @foreach (var join in Model.Flavors)
+  {
+    <div class="row">
+      <div class="col-md-3">
+        <li class="joinLine" style="margin-left: 10px;">- &nbsp;@join.Flavor.FlavorName</li>
+      </div>
+      <div class="col-md-3">
+        @using (Html.BeginForm("DeleteFlavor", "Treats"))
+        {
+          @Html.Hidden("treatId", @join.TreatId)
+          @Html.Hidden("joinId", @join.FlavorTreatId)
+          <li class="joinLine"><input type="submit" value="Remove" class="btn btn-warning btn-xs" /></li>
+        }
+      </div>
+    </div>
+  }
 }
 <br>
 @if (User.Identity.Name == "admin@pierre.local")

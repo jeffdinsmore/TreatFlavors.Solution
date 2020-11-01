@@ -15,18 +15,22 @@
 else
 {
   <h5>Treats with this flavor:</h5>
-  <ul>
-    @foreach (var join in Model.Treats)
-    {
-      <li>- &nbsp;@join.Treat.TreatName</li>
-      @using (Html.BeginForm("DeleteTreat", "Flavors"))
-      {
-        @Html.Hidden("flavorId", @join.FlavorId)
-        @Html.Hidden("joinId", @join.FlavorTreatId)
-        <li class="joinLine"><input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
-      }
-    }
-  </ul>
+  @foreach (var join in Model.Treats)
+  {
+    <div class="row">
+      <div class="col-md-3">
+        <li class="joinLine" style="margin-left: 10px;">- &nbsp;@join.Treat.TreatName</li>
+      </div>
+      <div class="col-md-3">
+        @using (Html.BeginForm("DeleteTreat", "Flavors"))
+        {
+          @Html.Hidden("flavorId", @join.FlavorId)
+          @Html.Hidden("joinId", @join.FlavorTreatId)
+          <li class="joinLine"><input type="submit" value="Remove" class="btn btn-warning btn-xs" /></li>
+        }
+      </div>
+    </div>
+  }
 }
 <br>
 @if (User.Identity.Name == "admin@pierre.local")

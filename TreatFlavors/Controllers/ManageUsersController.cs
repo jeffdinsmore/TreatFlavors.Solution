@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +12,10 @@ namespace TreatFlavors.Controllers
   public class ManageUsersController : Controller
   {
     private readonly UserManager<ApplicationUser>
-        _userManager;
+      _userManager;
 
     public ManageUsersController(
-        UserManager<ApplicationUser> userManager)
+      UserManager<ApplicationUser> userManager)
     {
       _userManager = userManager;
     }
@@ -24,11 +23,11 @@ namespace TreatFlavors.Controllers
     public async Task<IActionResult> Index()
     {
       var admins = (await _userManager
-          .GetUsersInRoleAsync("Administrator"))
-          .ToArray();
+        .GetUsersInRoleAsync("Administrator"))
+        .ToArray();
 
       var everyone = await _userManager.Users
-          .ToArrayAsync();
+        .ToArrayAsync();
 
       var model = new ManageUsersViewModel
       {
