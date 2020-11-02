@@ -6,13 +6,17 @@
 
 <h2>Log in with your account</h2>
 <hr />
+<div class="container">
 @using (Html.BeginForm())
 {
   @Html.LabelFor(m => m.Email)
+  <br>
   @Html.TextBoxFor(m => m.Email)
-
+  <br><br>
   @Html.LabelFor(m => m.Password)
+  <br>
   @Html.PasswordFor(m => m.Password)
-
+  <br><br>
   <input type="submit" value="Log in" class="btn btn-primary btn-sm" />
 }
+</div>

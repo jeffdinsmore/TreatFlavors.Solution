@@ -21,6 +21,14 @@ _Pierre's website will allow a logged in user to see a list of treats and flavor
 * _To run the program, type "dotnet run" in the terminal_
 * _The program should now be running_
 
+### To Login as Administrator and Change Administrator Credentials
+* _To login as the administrator, use the username and password credentials "admin@pierre.local" & "Notsecure1"_
+* _The admin credentials can be changed to your preferred username and password by going to the SeedData.cs file in the project root directory_
+* _Change lines 40 & 47 where the username "admin@pierre.local" is to your preferred username_
+* _Change line 48 where the password "Notsecure1" is and change to your preferred password_
+* _Save both files_
+* _Your admin username and password are now updated_
+
 ## Known Bugs
 
 _No known bugs at the this time._
@@ -30,6 +38,8 @@ _No known bugs at the this time._
 _Please check the .csproj file to ensure the proper framework you are running and change if necessary as described in the Setup section_
 
 _Please check the appsettings.json file to ensure the proper password to your MySQL Workbench and update as necessary as described above_
+
+_Please verify the admin username and password and change if desired as described above_
 
 _Any known issues, please reach out to Jeff Dinsmore by email at hello@jeffdinsmore.com._
 

@@ -22,11 +22,14 @@ else
         <li class="joinLine" style="margin-left: 10px;">- &nbsp;@join.Treat.TreatName</li>
       </div>
       <div class="col-md-3">
-        @using (Html.BeginForm("DeleteTreat", "Flavors"))
+        @if (User.Identity.Name == "admin@pierre.local")
         {
-          @Html.Hidden("flavorId", @join.FlavorId)
-          @Html.Hidden("joinId", @join.FlavorTreatId)
-          <li class="joinLine"><input type="submit" value="Remove" class="btn btn-warning btn-xs" /></li>
+          @using (Html.BeginForm("DeleteTreat", "Flavors"))
+          {
+            @Html.Hidden("flavorId", @join.FlavorId)
+            @Html.Hidden("joinId", @join.FlavorTreatId)
+            <li class="joinLine"><input type="submit" value="Remove" class="btn btn-warning btn-xs" /></li>
+          }
         }
       </div>
     </div>
