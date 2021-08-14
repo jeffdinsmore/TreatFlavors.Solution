@@ -7,20 +7,18 @@
 <h2>Log in with your account</h2>
 <hr />
 <div class="container">
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(m => m.Email)
-  <br>
-  @Html.TextBoxFor(m => m.Email, new{@Required = true})
-  <br><br>
-  @Html.LabelFor(m => m.Password)
-  <br>
-  @Html.PasswordFor(m => m.Password, new{@Required = true})
-  <br><br>
-  <input type="submit" value="Log in" class="btn btn-primary btn-sm" />
-  <span><em>&nbsp;&nbsp;or&nbsp;&nbsp;</em></span>
-  @Html.ActionLink("Register", "Register", null, null, new { @class = "btn btn-success btn-sm" })
-}
-@* <p>or</p>
-<p> @Html.ActionLink("Register", "Register", null, null, new { @class = "btn btn-success btn-sm" }) </p> *@
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(m => m.Email)
+    <br>
+    @Html.TextBoxFor(m => m.Email, new{@Required = true})
+    <br><br>
+    @Html.LabelFor(m => m.Password)
+    <br>
+    @Html.PasswordFor(m => m.Password, new{@Required = true})
+    <br><br>
+    <input type="submit" value="Log in" class="btn btn-primary btn-sm" />
+    <span><em>&nbsp;&nbsp;or&nbsp;&nbsp;</em></span>
+    @Html.ActionLink("Register", "Register", null, null, new { @class = "btn btn-success btn-sm" })
+  }
 </div>

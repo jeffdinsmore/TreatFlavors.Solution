@@ -1,6 +1,6 @@
 # _Pierre's Sweet & Savory Treats_
 
-#### _Pierre's website lists the flavors of his items and lists his treats, 10/23/2020_
+#### _Pierre's website lists the flavors of his items and lists his treats, 10/23/2020; updated 08/13/2021_
 
 #### By _Jeff Dinsmore_
 

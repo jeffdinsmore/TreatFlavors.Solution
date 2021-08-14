@@ -22,7 +22,7 @@ html {
 }
 
 .container {
-background-color: lightgrey;
+background-color: rgb(179, 211, 210);
 }
 
 .border-top {
@@ -54,9 +54,14 @@ body {
   margin-bottom: 60px;
   font-family: Century Gothic, sans-serif;
 }
+
+.jumbotron {
+  background-color: rgb(116, 185, 185);
+}
+
 #footer {
   position: absolute;
-  background-color: lightgrey;
+  background-color: rgb(179, 211, 210);
   bottom: 0;
   width: 100%;
   white-space: nowrap;
@@ -85,7 +90,7 @@ ul {
 }
 
 li.nav-item a:hover {
-  background-color: rgb(179, 179, 179);
+  background-color: rgb(116, 185, 185);
 }
 
 .navbar-brand a:hover {
