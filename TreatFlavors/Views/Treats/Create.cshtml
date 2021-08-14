@@ -8,7 +8,7 @@
 @using (Html.BeginForm())
 {
   @Html.Label("Treat Name")
-  @Html.TextBoxFor(model => model.TreatName)
+  @Html.TextBoxFor(model => model.TreatName, new{@Required = true})
 
   <input type="submit" value="Add new Treat" class="btn btn-success btn-sm" />
 }

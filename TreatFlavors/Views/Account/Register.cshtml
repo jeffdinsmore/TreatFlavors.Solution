@@ -11,15 +11,15 @@
 {
   @Html.LabelFor(user => user.Email)
   <br>
-  @Html.TextBoxFor(user=> user.Email)
+  @Html.TextBoxFor(user=> user.Email, new{@Required = true})
   <br><br>
   @Html.LabelFor(user=> user.Password)
   <br>
-  @Html.PasswordFor(user=> user.Password)
+  @Html.PasswordFor(user=> user.Password, new{@Required = true})
   <br><br>
   @Html.LabelFor(user=> user.ConfirmPassword)
   <br>
-  @Html.PasswordFor(user=> user.ConfirmPassword)
+  @Html.PasswordFor(user=> user.ConfirmPassword, new{@Required = true})
   <br><br>
   <p><input type="submit" value="Submit" class="btn btn-success btn-sm" /></p>
 }
